@@ -12,6 +12,7 @@
       referrerpolicy="no-referrer"
     />
     <script src="messages.js" type="module" defer></script>
+    <script src="main.js" type="module" defer></script>
     <title>Document</title>
   </head>
   <body>
@@ -43,7 +44,7 @@
             </div>
           </div>
 
-          <div class="chat-messages">
+          <div id="chat-messages" class="chat-messages">
             <div class="message-box-holder">
               <div class="message-box">What are you people doing?</div>
             </div>
@@ -96,7 +97,12 @@
 
           <div class="chat-input-holder">
             <textarea class="chat-input" id="message-input"></textarea>
-            <input type="submit" value="Send" class="message-send" id="message-submit-button" />
+            <input
+              type="submit"
+              value="Send"
+              class="message-send"
+              id="message-submit-button"
+            />
           </div>
 
           <div class="attachment-panel">
