@@ -20,7 +20,10 @@ loginButton.addEventListener('click', async (ev) => {
   if (rawResponse.status == 200) {
     const content = await rawResponse.json();
     window.location.replace('index.html');
+    
   } else {
     error.style.display = 'block';
   }
 });
+
+

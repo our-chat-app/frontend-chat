@@ -1,25 +1,27 @@
 // import './style.scss'
-const messageSender = document.getElementById('message-sender');
+//const messageSender = document.getElementById('message-sender');
+
 let textBox = document.getElementById('chat-messages');
 async function getUsers() {
   const rawResponse = await fetch('http://localhost:3000/api/users');
   const allUsers = await rawResponse.json();
 
-  allUsers.forEach((user) => {
-    const senderLink = document.createElement('a');
- 
-    
-  });
-
-  
 }
 
 export async function getMessages() {
+  const options = {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(),
+    credentials: "include",
+  };
   textBox.innerHTML = '';
-  const rawResponse = await fetch('http://localhost:3000/api/messages');
+  const rawResponse = await fetch('http://localhost:3000/api/messages', options);
   const allMessages = await rawResponse.json();
-  //Kanske inte behöver hämta alla meddelanden?
   allMessages.forEach((message) => {
+    
     if (message.isCurrentUser) {
       const messageHolder = document.createElement('div');
       const messageBox = document.createElement('div');
@@ -32,13 +34,14 @@ export async function getMessages() {
       const messageHolder = document.createElement('div');
       const messageBox = document.createElement('div');
       const messageSender = document.createElement('div');
-      
+      const senderLink = document.createElement('a');
 
       messageSender.classList.add('message-sender');
       messageHolder.className = 'message-box-holder';
       messageBox.classList.add('message-box', 'message-partner');
 
       messageBox.innerHTML = message.message;
+      senderLink.innerHTML = message.nickname;
       messageHolder.appendChild(messageSender);
       messageHolder.appendChild(messageBox);
       messageSender.appendChild(senderLink);
@@ -48,3 +51,6 @@ export async function getMessages() {
 }
 
 await getMessages();
+
+  textBox.scrollTo({ top:9999,left:9999,behavior:'instant' })
+
