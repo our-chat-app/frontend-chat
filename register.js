@@ -1,11 +1,12 @@
 const registerButton = document.getElementById('register');
+const registerForm = document.getElementById('register-form')
 const passwordRegister = document.getElementById('password-register');
 const confirmPassword = document.getElementById('passwordconfirm-register');
 const nicknameRegister = document.getElementById('nickname-register');
 const emailRegister = document.getElementById('email-register');
 const error = document.getElementById('error');
 
-registerButton.addEventListener('click', async (ev) => {
+registerForm.addEventListener('submit', async (ev) => {
   ev.preventDefault();
   if (passwordRegister.value === confirmPassword.value) {
     const rawResponse = await fetch('http://localhost:3000/api/users', {

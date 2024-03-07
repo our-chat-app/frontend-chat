@@ -20,6 +20,11 @@ export async function getMessages() {
   textBox.innerHTML = '';
   const rawResponse = await fetch('http://localhost:3000/api/messages', options);
   const allMessages = await rawResponse.json();
+
+  if (rawResponse.status == 401) {
+    window.location.replace('login.html');
+  }
+
   allMessages.forEach((message) => {
     
     if (message.isCurrentUser) {
@@ -47,8 +52,11 @@ export async function getMessages() {
       messageSender.appendChild(senderLink);
       textBox.appendChild(messageHolder);
     }
+    
   });
 }
+
+
 
 await getMessages();
 
