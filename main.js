@@ -52,5 +52,8 @@ export async function getMessages() {
 
 await getMessages();
 
-  textBox.scrollTo({ top:9999,left:9999,behavior:'instant' })
+  textBox.scrollTo({ top:9999,left:0,behavior:'instant' })
+
+
+
 

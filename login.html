@@ -45,19 +45,22 @@
           
           <div class="chat-messages">
             
+            <form id="login-form">
             <div class="message-box-holder">
               <div class="message-sender">
                 <a href="#">Email</a>
                 <hr/>
-                <input class="chat-input" id="email-login"></input>
+                <input class="chat-input" id="email-login" required type="email"></input>
               </div>
+              <span id="emailError">Skriv in rätt</span>
               <div class="message-sender">
                 <a href="#">Password</a>
                 <hr/>
-                <input class="chat-input" id="password-login"></input>
+                <input class="chat-input" id="password-login" required type="password"></input>
               </div>
               <div class="message-sender">
                 <input type="submit" value="Login" class="message-send pad" id="login"/>
+                </form>
               </div>
             </div>
           </div>
