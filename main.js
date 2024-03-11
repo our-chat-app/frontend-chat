@@ -3,7 +3,7 @@
 
 let textBox = document.getElementById('chat-messages');
 async function getUsers() {
-  const rawResponse = await fetch('http://localhost:3000/api/users');
+  const rawResponse = await fetch('http://192.168.132.120:3000/api/users');
   const allUsers = await rawResponse.json();
 
 }
@@ -18,7 +18,7 @@ export async function getMessages() {
     credentials: "include",
   };
   textBox.innerHTML = '';
-  const rawResponse = await fetch('http://localhost:3000/api/messages', options);
+  const rawResponse = await fetch('http://192.168.132.120:3000/api/messages', options);
   const allMessages = await rawResponse.json();
 
   if (rawResponse.status == 401) {

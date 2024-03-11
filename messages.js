@@ -10,7 +10,7 @@ let textBox = document.getElementById('chat-messages');
 messageForm.addEventListener('submit', async (ev) => {
   ev.preventDefault();
 
-  const rawResponse = await fetch('http://localhost:3000/api/message', {
+  const rawResponse = await fetch('http://192.168.132.120:3000/api/message', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

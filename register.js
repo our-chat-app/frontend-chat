@@ -8,8 +8,10 @@ const error = document.getElementById('error');
 
 registerForm.addEventListener('submit', async (ev) => {
   ev.preventDefault();
+  console.log("hallå")
   if (passwordRegister.value === confirmPassword.value) {
-    const rawResponse = await fetch('http://localhost:3000/api/users', {
+    console.log("hej igen")
+    const rawResponse = await fetch('http://192.168.132.120:3000/api/users', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -24,7 +26,7 @@ registerForm.addEventListener('submit', async (ev) => {
     });
     if (rawResponse.status == 201) {
       const content = await rawResponse.json();
-      /* window.location.replace('index.html'); */
+      window.location.replace('login.html');
     }
   } else {
     error.style.display = 'block';
